@@ -14,7 +14,11 @@ class StorePicker extends React.Component {
     const storeId = this.storeInput.value;
     console.log(`Going to ${storeId}`);
     // second we're going to transition from / to /store/:storeID
-    this.context.router.transitionTo(`/store/${storeId}`);
+    // this.context.router.transitionTo(`/store/${storeId}`);
+
+    this.props.location.pathname = `/store/${storeId}`;
+    this.props.history.push(`/store/${storeId}`);
+    this.props.history.replace(`/store/${storeId}`);
   }
   // ReactDom.render()
   render() {
@@ -40,8 +44,8 @@ class StorePicker extends React.Component {
   }
 }
 
-StorePicker.contextTypes = {
-  router: React.PropTypes.object
-}
+// StorePicker.contextTypes = {
+//   router: React.PropTypes.object
+// }
 
 export default StorePicker;
